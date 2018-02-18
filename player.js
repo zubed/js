@@ -1,4 +1,12 @@
-            var skin = document.getElementById('skindezign');
+/*
+Name                    : skin player 1
+Publish By		: skindezign
+Publish URL		: skindezign.blogspot.com
+Publish On		: 18 Februari 2018
+Thanks to               : All supported
+License                 : Public version - Free for non-commercial uses.
+*/
+var skin = document.getElementById('skindezign');
             var skin_play = document.getElementById('skin_play');
             var skin_pause = document.getElementById('skin_pause');
             var skin_stop = document.getElementById('skin_stop');
