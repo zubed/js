@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<body>
+<style>
+/* Audio Responsive */
+.skin {display:block;background:url(https://1.bp.blogspot.com/-jGL9xWPyei0/WoklfbiXiZI/AAAAAAAAAfI/OJdpLxAfSygdJB51mUjl2vN6q8bkeCAsgCLcBGAs/s1600/Player611.png) center no-repeat;max-width:700px;padding:120px;margin:0 auto 0px auto;text-align:center}
+.display {position:relative;display:inline-block;background-color:transparent;width:350px;height:80px;padding:0px 8px;color:#00a8ec;font-weight:700;font-size:10px;text-align:center;text-transform:uppercase;letter-spacing:0.5px;margin:auto;border:0px solid #fff;border-radius:1px;overflow:hidden;transition:all .3s;top:12px}
+.timeline {position:relative;display:inline-block;background:transparent;height: 8px;width:275px;border:1px solid #b4b4b4;border-radius:9px;overflow:hidden;top:30px}
+#progres {background:#00a8ec; height: 8px; width: 0px}
+#skin_play {position:relative;display:inline-block;background:url(https://1.bp.blogspot.com/-0gFbq1J-sTc/WoNhFtP0e5I/AAAAAAAAAYk/UC9L5SrdqowbfeeVf2tFqFTgZe-rB8H5wCLcBGAs/s1600/Play1.png) center no-repeat;max-width:0px;padding:18px 24px;top:12px}
+#skin_pause {position:relative;display:inline-block;background:url(https://1.bp.blogspot.com/-faGUmmjIyhA/WoNhCzU_KkI/AAAAAAAAAX8/T5YPs4mDZ1E2_zV9SZVoCdnUif9pM6t-gCLcBGAs/s1600/Pause1.png) center no-repeat;max-width:0px;padding:18px 24px;top:12px}
+#skin_stop {position:relative;display:inline-block;background:url(https://1.bp.blogspot.com/-wMFu0fXjz4E/Wok6QR6OsuI/AAAAAAAAAfY/a_5HLmL3keMSYTgJnZap3KK0f_qYMa4OwCLcBGAs/s1600/stop1.png) center no-repeat;max-width:0px;padding:18px 24px;top:12px}
+#link1 {position:relative;display:inline-block;background:url(https://1.bp.blogspot.com/-oaVAvYrDZIg/WoNg82M-BgI/AAAAAAAAAW0/o7ZURPrF6yk8P1XzVgw0MyDuBePveueIACLcBGAs/s1600/link1.png) center no-repeat;max-width:0px;padding:18px 24px;top:12px}
+#link2 {position:relative;display:inline-block;background:url(https://1.bp.blogspot.com/-HrV98fw3I6E/WoNg9qIUCdI/AAAAAAAAAW4/KL2Gs16s3ME4tuJ22kbDjlqX15Mlj06ewCLcBGAs/s1600/link21.png) center no-repeat;max-width:0px;padding:18px 24px;top:12px}
+#skin_play:hover {position:relative;display:inline-block;background:url(https://1.bp.blogspot.com/-BWVu_N4x4Cs/WoNhFmnUDaI/AAAAAAAAAYs/yXwfHgsLe50oiDLvNpVpqvlUYPmPrS1VwCLcBGAs/s1600/Play2.png) center no-repeat;max-width:0px;padding:18px 24px;top:12px}
+#skin_pause:hover {position:relative;display:inline-block;background:url(https://1.bp.blogspot.com/-GGJFJpjsRrM/Wok6QpIYJmI/AAAAAAAAAfc/Snd1Loy6YMgb1ExidYBk1MzqOlyDhEUsgCLcBGAs/s1600/stop2.png) center no-repeat;max-width:0px;padding:18px 24px;top:12px}
+#skin_stop:hover {position:relative;display:inline-block;background:url(https://1.bp.blogspot.com/-NN2U98OaNF4/WoNg2ebZFkI/AAAAAAAAAWM/g-9-cDopV5ALQ47lSwFWTICNk63HTlbNgCLcBGAs/s1600/dispaly2.png) center no-repeat;max-width:0px;padding:18px 24px;top:12px}
+#link1:hover {position:relative;display:inline-block;background:url(https://1.bp.blogspot.com/-ZGwtR-FrEnU/WoNg870WC3I/AAAAAAAAAWw/q2Mu3yNuzV46SxH-I_3TDh_3W1pSPnpYACLcBGAs/s1600/link2.png) center no-repeat;max-width:0px;padding:18px 24px;top:12px}
+#link2:hover {position:relative;display:inline-block;background:url(https://1.bp.blogspot.com/-xbpU5TgHKOU/WoNg90FC7MI/AAAAAAAAAW8/BqfgUgwnt28cghOYoi5EgLl782JqdZmPwCLcBGAs/s1600/link22.png) center no-repeat;max-width:0px;padding:18px 24px;top:12px}
+</style>
+        <script>
+            var skin = document.getElementById('skindezign');
+            var skin_play = document.getElementById('skin_play');
+            var skin_pause = document.getElementById('skin_pause');
+            var skin_stop = document.getElementById('skin_stop');
+            var progres = document.getElementById('progres');
+            skin_play.disabled = false;
+            skin_pause.disabled = true;
+            skin_stop.disabled = true;
+            function play() {
+                skin.play();
+                skin_play.disabled = true;
+                skin_pause.disabled = false;
+                skin_stop.disabled = false;
+                update();
+            }
+            function pause() {
+                skin.pause();
+                skin_play.disabled = false;
+                skin_pause.disabled = true;
+                skin_stop.disabled = false;
+                update();
+            }
+            function stop() {
+                skin.pause();
+                skin.currentTime = 0;
+                skin_play.disabled = false;
+                skin_pause.disabled = true;
+                skin_stop.disabled = true;
+                update();
+            }
+            function update() {
+                setInterval(function () {
+                    var saatini = skin.currentTime;
+                    var durasi = skin.duration;
+                    var persen = (saatini / durasi) * 275;
+                    progres.style.width = parseInt(persen) + 'px';
+                }, 1);
+            }
+        </script>
+</body>
+</html>
